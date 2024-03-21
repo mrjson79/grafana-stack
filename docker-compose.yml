@@ -1,12 +1,14 @@
 version: '3.9'
 
+
+  
 services:
 
   prometheus:
     image: prom/prometheus:v2.45.0
     volumes:
       - ./prometheus:/etc/prometheus
-      - prometheus_data:/prometheus
+      - /var/lib/docker/volumes/prometheus_data:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
       - '--storage.tsdb.path=/prometheus'
